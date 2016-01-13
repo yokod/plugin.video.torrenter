@@ -36,6 +36,16 @@ class ThePirateBaySe(Content.Content):
         'movieshd': ('Movies [HD]', '/browse/207', {'page': '/browse/208/%d', 'increase': 1, 'second_page': 1,
                                                     'sort': [{'name': 'by Seeders', 'url_after': '/0/7/0'},
                                                              {'name': 'by Date', 'url_after': '/0/3/0'}]}),
+	    'movies3D': ('Movies [3D]', '/browse/209', {'page': '/browse/209/%d', 'increase': 1, 'second_page': 1,
+                                                    'sort': [{'name': 'by Seeders', 'url_after': '/0/7/0'},
+                                                             {'name': 'by Date', 'url_after': '/0/3/0'}]}),
+	    'movies bluray': ('Movies [Bluray]', '/search/bluray', {'page': '/search/bluray/%d', 'increase': 1, 'second_page': 1,
+                                                    'sort': [{'name': 'by Seeders', 'url_after': '/0/7/207'},
+                                                             {'name': 'by Date', 'url_after': '/0/3/207'}]}),
+		'heb_movies': ('סרטים מדובבים', '/search/Hebrew-dubbed/0/7/0'),
+											 													 
+		 											 
+															 
     }
 
     baseurl = "thepiratebay.cr"
@@ -43,6 +53,9 @@ class ThePirateBaySe(Content.Content):
                 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124' + \
                 ' YaBrowser/14.10.2062.12061 Safari/537.36'),
                ('Referer', 'http://kickass.so/'), ('Accept-Encoding', 'gzip')]
+			   
+			   
+			   
     '''
     Weight of source with this searcher provided.
     Will be multiplied on default weight.
@@ -52,9 +65,6 @@ class ThePirateBaySe(Content.Content):
 
     def isTracker(self):
         return True
-
-    def isSearcher(self):
-        return False
 
     def isScrappable(self):
         return False
@@ -119,5 +129,6 @@ class ThePirateBaySe(Content.Content):
             contentList.append((
                 int(int(self.sourceWeight) * (int(num))),
                 original_title, title, int(year), img, info,
+
             ))
         return contentList
